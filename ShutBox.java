@@ -6,7 +6,7 @@ import java.util.*;
 public class ShutBox {
 
 	static boolean validate(String inputArray[], Tiles tiles) {
-		Hashtable numbers = new Hashtable();
+		Map<String, Integer> numbers = new HashMap<String, Integer>();
 		boolean validated = true;
 		numbers.clear();
 		try {
@@ -81,11 +81,12 @@ public class ShutBox {
 					box.display();
 					turn.display();
 					dice.display();
-                                        if (!box.checkEnd(dice.getValue())) { 
+                    if (!box.checkEnd(dice.getValue())) { 
 						System.out.println("No more possibilities. Type 'new' to restart.");
 					}
 					try {
-						buff = new BufferedReader(new InputStreamReader( System.in ));						System.out.print("\n=> ");
+						buff = new BufferedReader(new InputStreamReader( System.in ));
+                        System.out.print("\n=> ");
 						System.out.flush();
                                                 s = buff.readLine();
 						result = s.split("\\W");
